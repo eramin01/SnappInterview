@@ -35,25 +35,18 @@ public class VehiclesRepository implements SavableDataSource<List<Vehicle>> {
             return mRemoteDataSource.getData().flatMap(new Function<List<Vehicle>, SingleSource<? extends List<Vehicle>>>() {
                 @Override
                 public SingleSource<? extends List<Vehicle>> apply(List<Vehicle> vehicles) throws Exception {
-                    Log.e("rx", "onApiDataReady, size = " + (vehicles == null ? 0 : vehicles.size()) + ", thread = " + Thread.currentThread().getName());
+                    saveDataAndSubscribe(vehicles);
 
-                    saveData(vehicles).subscribe();
-
-                    try {
-                        Thread.sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    Log.e("rx", "onApiDataReady, after save called" + ", thread = " + Thread.currentThread().getName());
-
-                    Log.e("rx", "onApiDataReady, sending event for ui" + ", thread = " + Thread.currentThread().getName());
                     return Single.just(vehicles);
                 }
             });
         }
 
         return mLocalDataSource.getData();
+    }
+
+    private void saveDataAndSubscribe(List<Vehicle> vehicles) {
+        saveData(vehicles).subscribe();
     }
 
     @Override
