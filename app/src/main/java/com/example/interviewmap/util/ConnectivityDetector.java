@@ -1,6 +1,6 @@
 package com.example.interviewmap.util;
 
-public interface ConnectivityChecker {
+public interface ConnectivityDetector {
 
     boolean isOnline();
 

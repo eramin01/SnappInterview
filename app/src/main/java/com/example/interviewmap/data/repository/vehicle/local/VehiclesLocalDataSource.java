@@ -11,9 +11,19 @@ import io.reactivex.schedulers.Schedulers;
 
 public class VehiclesLocalDataSource implements LocalDataSource<Vehicle> {
 
+    private volatile static VehiclesLocalDataSource sInstance = null;
+
+    public static VehiclesLocalDataSource getInstance(VehicleDao dao) {
+        if (sInstance == null) {
+            sInstance = new VehiclesLocalDataSource(dao);
+        }
+
+        return sInstance;
+    }
+
     private final VehicleDao mDao;
 
-    public VehiclesLocalDataSource(VehicleDao dao) {
+    private VehiclesLocalDataSource(VehicleDao dao) {
         mDao = dao;
     }
 

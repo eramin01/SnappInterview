@@ -11,9 +11,19 @@ import io.reactivex.functions.Function;
 
 public class VehiclesRemoteDataSource implements RemoteDataSource<Vehicle> {
 
+    private volatile static VehiclesRemoteDataSource sInstance = null;
+
+    public static VehiclesRemoteDataSource getInstance(VehiclesApiService apiService) {
+        if (sInstance == null) {
+            sInstance = new VehiclesRemoteDataSource(apiService);
+        }
+
+        return sInstance;
+    }
+
     private VehiclesApiService mApiService;
 
-    public VehiclesRemoteDataSource(VehiclesApiService apiService) {
+    private VehiclesRemoteDataSource(VehiclesApiService apiService) {
         mApiService = apiService;
     }
 
