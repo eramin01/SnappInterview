@@ -1,3 +1,3 @@
 # SnappInterview
 
-![](screenshots/Snapp_screenShot_01)
+![](screenshots/Snapp_screenShot_01.png)
