@@ -38,6 +38,7 @@ public class BitmapMarkerCreator {
                 .position(new LatLng(vehicle.getLat(), vehicle.getLng()))
                 .icon(BitmapDescriptorFactory.fromBitmap(bitmap))
                 .rotation(vehicle.getBearing())
+                .anchor(0.5f,0.5f)
                 .flat(true)
                 .draggable(false);
     }
