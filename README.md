@@ -1,7 +1,6 @@
 # SnappInterview
+<img src="screenshots/Snapp_screenShot_01.png" height=400 />
 
-![](screenshots/Snapp_screenShot_01.png)
+<img src="screenshots/Snapp_screenShot_02.png" height=400 />
 
-![](screenshots/Snapp_screenShot_02.png)
-
-![](screenshots/Snapp_screenShot_03.png)
+<img src="screenshots/Snapp_screenShot_03.png" height=400 />
